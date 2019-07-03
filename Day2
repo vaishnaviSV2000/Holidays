@@ -1,0 +1,40 @@
+#include <stdio.h>
+int input1()
+{
+    int n;
+    printf("Enter the value of n:");
+    scanf("%d",&n);
+    return n;
+}
+void input2(int a[],int n)
+{
+    int i;
+    for(i=0;i<n;i++)
+    {
+        printf("Enter a number:");
+        scanf("%d",&a[i]);
+    }
+}
+void compute(int n,int a[],int *sum)
+{
+    int i;
+    *sum=0;
+    for(i=0;i<n;i++)
+    {
+        *sum=*sum+a[i];
+    }
+}
+void result(int sum)
+{
+    printf("%d",sum);
+}
+int main()
+{
+    int x,r,z;
+    int a[50];
+    x=input1();
+    input2(a,x);
+    compute(x,a,&r);
+    result(r);
+}
+
