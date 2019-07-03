@@ -43,3 +43,36 @@ int main()
     compute(x,a,&r);
     result(r,x,a);
 }
+
+
+
+#include <stdio.h>
+struct fr
+{
+    int num;
+    int den;
+};
+struct fr input(struct fr *fr1)
+{
+    printf("Enter the numerator:\n");
+    scanf("%d",&fr1->num);
+    printf("Enter the denominator:\n");
+    scanf("%d",&fr1->den);
+}
+struct fr compute(struct fr *fr1,struct fr *fr2,struct fr *r)
+{
+    r->num=fr1->den*fr2->num+fr1->num*fr2->den;
+    r->den=fr1->den+fr2->den;
+}
+void output(struct fr r)
+{
+    printf("%d/%d",r.num,r.den);
+}
+int main()
+{
+    struct fr fr1,fr2,r;
+    input(&fr1);
+    input(&fr2);
+    compute(&fr1,&fr2,&r);
+    output(r);
+}
