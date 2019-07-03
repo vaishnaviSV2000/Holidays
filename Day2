@@ -26,19 +26,20 @@ void compute(int n,int a[],int *sum)
 }
 void result(int sum,int n,int a[])
 {
-    for(i=0;i<n-1,i++)
+    int i;
+    for(i=0;i<n-1;i++)
     {
-        printf("%d+");
+        printf("%d+",a[i]);
     }
     printf("%d",a[n-1]);
     printf("=%d",sum);
 }
 int main()
 {
-    int x,r,z;
+    int x,r;
     int a[50];
     x=input1();
     input2(a,x);
     compute(x,a,&r);
-    result(r);
+    result(r,x,a);
 }
