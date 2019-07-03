@@ -24,9 +24,14 @@ void compute(int n,int a[],int *sum)
         *sum=*sum+a[i];
     }
 }
-void result(int sum)
+void result(int sum,int n,int a[])
 {
-    printf("%d",sum);
+    for(i=0;i<n-1,i++)
+    {
+        printf("%d+");
+    }
+    printf("%d",a[n-1]);
+    printf("=%d",sum);
 }
 int main()
 {
@@ -37,4 +42,3 @@ int main()
     compute(x,a,&r);
     result(r);
 }
-
