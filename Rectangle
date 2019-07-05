@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include<math.h>
+struct v
+{
+    float x;
+    float y;
+};
+struct rectangle
+{
+    struct v v[3];
+    float l;
+    float b;
+    float area;
+};
+
+int input1()
+{
+    int n;
+    printf("Enter the number of rectangle:\n");
+    scanf("%d",&n);
+    return n;
+}
+void input2(int n,struct rectangle a[])
+{
+    int i,j;
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<3;j++)
+        {
+            printf("Enter x coordinate of v%d:\n",i+1);
+            scanf("%f",&a[i].v[j].x);
+            printf("Enter y coordinate of v%d:\n",i+1);
+            scanf("%f",&a[i].v[j].y);
+        }
+
+    }
+}
+void compute(int n,struct rectangle a[])
+{
+    int i,j;
+    for(i=0;i<n;i++)
+    {
+            j=0;
+            a[i].b=sqrt(((a[i].v[j+1].x-a[i].v[j].x)*(a[i].v[j+1].x-a[i].v[j].x))-((a[i].v[j+1].y-a[i].v[j].y)*(a[i].v[j+1].y-a[i].v[j].y)));
+            a[i].l=sqrt(((a[i].v[j+2].x-a[i].v[j+1].x)*(a[i].v[i+2].x-a[i].v[j+2].x))-((a[i].v[j+2].y-a[i].v[j+1].y)*(a[i].v[j+2].y-a[i].v[j+1].y)));
+
+    }
+
+}
+void compute2(int n,struct rectangle a[])
+{
+    int i;
+    for(i=0;i<n;i++)
+    {
+        printf("l=%d,b=%d",a[i].l,a[i].b);
+        a[i].area=a[i].l*a[i].b;
+    }
+}
+void output(int n,struct rectangle a[])
+{
+    int i;
+    for(i=0;i<n;i++)
+    {
+        printf("Area of %d rectangle is %d",i+1,a[i].area);
+    }
+}
+int main()
+{
+    int n;
+    struct rectangle a[100];
+    n=input1();
+    input2(n,a);
+    compute(n,a);
+    compute2(n,a);
+    output(n,a);
+}
