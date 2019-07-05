@@ -25,7 +25,7 @@ struct fr input(int n,struct fr a[])
 }
 struct fr compute(int n,struct fr a[],struct fr *r,struct fr *s)
 {
-    int i,c=0,e=0,m=0;
+    int i;
     r->den=1;
     r->num=0;
     for(i=0;i<n;i++)
@@ -33,8 +33,12 @@ struct fr compute(int n,struct fr a[],struct fr *r,struct fr *s)
     r->num=a[i].den*r->num+a[i].num*r->den;
     r->den=a[i].den*r->den;
     }
-    e=(r->num>r->den)?r->num:r->den;
-    m=(r->num<r->den)?r->num:r->den;
+}
+void gcd(struct fr *s,struct fr r)
+{
+    int e,r,m,c;
+    e=(r.num>r.den)?r.num:r.den;
+    m=(r.num<r.den)?r.num:r.den;
     c=e%m;
     s->den=r->den/c;
     s->num=r->num/c;
