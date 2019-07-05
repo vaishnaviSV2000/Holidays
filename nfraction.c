@@ -23,7 +23,7 @@ struct fr input(int n,struct fr a[])
     scanf("%d",&a[i].den);
     }
 }
-struct fr compute(int n,struct fr a[],struct fr *r,struct fr *s)
+struct fr compute(int n,struct fr a[],struct fr *r)
 {
     int i;
     r->den=1;
@@ -36,12 +36,12 @@ struct fr compute(int n,struct fr a[],struct fr *r,struct fr *s)
 }
 void gcd(struct fr *s,struct fr r)
 {
-    int e,r,m,c;
+    int e,m,c;
     e=(r.num>r.den)?r.num:r.den;
     m=(r.num<r.den)?r.num:r.den;
     c=e%m;
-    s->den=r->den/c;
-    s->num=r->num/c;
+    s->den=r.den/c;
+    s->num=r.num/c;
 }
 void output(struct fr s)
 {
@@ -55,6 +55,7 @@ int main()
     int n;
     n=input1();
     input(n,a);
-    compute(n,a,&r,&s);
+    compute(n,a,&r);
+    gcd(&s,r);
     output(s);
 }
